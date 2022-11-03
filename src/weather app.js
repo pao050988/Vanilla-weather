@@ -23,6 +23,7 @@ function formatDate(timestamp) {
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
+  celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
   let cityElement = document.querySelector("#city");
@@ -48,6 +49,7 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemperature = response.data.main.temp;
+  console.log(displayTemperature);
 }
 
 function search(city) {
@@ -81,7 +83,6 @@ function displaycelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -91,4 +92,4 @@ fahrenheitlink.addEventListener("click", displayFahrenheitTemperature);
 let celsiuslink = document.querySelector("#celsius-link");
 celsiuslink.addEventListener("click", displaycelsiusTemperature);
 
-search("colombia");
+search("New York");
